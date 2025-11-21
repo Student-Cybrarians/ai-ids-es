@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-time IDS Dashboard | AI-IDS-ES</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/ids.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="../Images/logo.png" alt="AI-IDS-ES Logo" class="logo">
+        <span class="brand">AI-IDS-ES</span>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="real-time-ids.html" class="active">Real-time IDS</a></li>
+        <li><a href="hybrid-encryption.html">Hybrid Encryption</a></li>
+        <li><a href="ai-ids-es-architecture.html">Architecture</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <section class="section">
+      <h1>Real-time Intrusion Detection (Demo Dashboard)</h1>
+      <p>
+        This page simulates how the AI-IDS-ES dashboard would look when connected
+        to live network traffic, ML models, and Elasticsearch. The data below is
+        mock data generated in the browser, but the layout is ready for real APIs.
+      </p>
+    </section>
+  </header>
+
+  <main class="ids-layout">
+    <div class="ids-grid">
+      <section class="ids-card">
+        <h2>Current Detection Overview</h2>
+        <div class="stats-row">
+          <div class="stat-pill">
+            <div class="stat-label">Total Alerts (last hour)</div>
+            <div class="stat-value" id="totalAlerts">0</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-label">High Severity</div>
+            <div class="stat-value text-danger" id="highAlerts">0</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-label">Medium Severity</div>
+            <div class="stat-value" id="mediumAlerts">0</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-label">Low Severity</div>
+            <div class="stat-value text-ok" id="lowAlerts">0</div>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 1.25rem;">Model Usage</h3>
+        <div class="stats-row">
+          <div class="stat-pill">
+            <div class="stat-label">Random Forest Alerts</div>
+            <div class="stat-value" id="rfCount">0</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-label">Autoencoder Alerts</div>
+            <div class="stat-value" id="aeCount">0</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ids-card">
+        <h2>Architecture (Conceptual)</h2>
+        <p>
+          In the full implementation, this dashboard would connect to a backend
+          that performs:
+        </p>
+        <ul>
+          <li>Packet capture using libpcap / npcap</li>
+          <li>Flow feature extraction (e.g., CICFlowMeter-style features)</li>
+          <li>
+            Inference using:
+            <ul>
+              <li>Supervised classifier (Random Forest) for known attacks</li>
+              <li>Anomaly detector (Autoencoder) for unknown threats</li>
+            </ul>
+          </li>
+          <li>Indexing alerts and flow summaries into Elasticsearch</li>
+          <li>Serving this dashboard via REST/JSON APIs</li>
+        </ul>
+        <p>
+          This page focuses on the front-end structure, ready to be wired to real APIs.
+        </p>
+      </section>
+    </div>
+
+    <section class="ids-card" style="margin-top: 1.5rem;">
+      <h2>Recent Alerts (Mock Data)</h2>
+      <table class="alerts-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Source IP</th>
+            <th>Destination IP</th>
+            <th>Severity</th>
+            <th>Type</th>
+            <th>Model</th>
+          </tr>
+        </thead>
+        <tbody id="alertsBody">
+          <!-- Filled by ids-dashboard.js -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Student Cybrarians • AI-IDS-ES</p>
+  </footer>
+
+  <script src="../Java Script/main.js"></script>
+  <script src="../Java Script/ids-dashboard.js"></script>
+</body>
+  </html>
