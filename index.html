@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-IDS-ES | Student Cybrarians</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/projects.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="Images/logo.png" alt="AI-IDS-ES Logo" class="logo">
+        <span class="brand">AI-IDS-ES</span>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="HTML/real-time-ids.html">Real-time IDS</a></li>
+        <li><a href="HTML/hybrid-encryption.html">Hybrid Encryption</a></li>
+        <li><a href="HTML/ai-ids-es-architecture.html">Architecture</a></li>
+        <li><a href="HTML/about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>AI-IDS-ES</h1>
+        <p>
+          AI-powered Intrusion Detection System integrated with Elasticsearch
+          for intelligent, real-time security monitoring.
+        </p>
+        <div class="hero-actions">
+          <a href="HTML/real-time-ids.html" class="btn primary">View IDS Dashboard</a>
+          <a href="HTML/ai-ids-es-architecture.html" class="btn secondary">View Architecture</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="Images/banner.png" alt="Security Dashboard Banner">
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section intro">
+      <h2>Project Overview</h2>
+      <p>
+        AI-IDS-ES combines machine learning–based intrusion detection with
+        centralized event storage and search. The system ingests live network
+        flows, runs them through supervised and unsupervised models, and pushes
+        alerts into an Elasticsearch stack for analysis.
+      </p>
+    </section>
+
+    <section class="section projects-grid">
+      <h2>Projects Under AI-IDS-ES</h2>
+
+      <div class="grid">
+        <article class="project-card">
+          <img src="Images/project1.png" alt="Real-time IDS" class="project-image">
+          <h3>Real-time IDS (ML-based)</h3>
+          <p>
+            Network traffic capture, flow feature extraction, and Random Forest +
+            Autoencoder models to detect both known and unknown attacks.
+          </p>
+          <a href="HTML/real-time-ids.html" class="btn small">Open Dashboard Page</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Hybrid Encryption for Database Protection</h3>
+          <p>
+            AES-based symmetric encryption combined with asymmetric key wrapping
+            to protect sensitive database columns against unauthorized access.
+          </p>
+          <a href="HTML/hybrid-encryption.html" class="btn small">View Design</a>
+        </article>
+
+        <article class="project-card">
+          <h3>AI-IDS-ES Architecture</h3>
+          <p>
+            End-to-end design of the system: data pipeline, model serving,
+            Elasticsearch indexing, and visualization for SOC workflows.
+          </p>
+          <a href="HTML/ai-ids-es-architecture.html" class="btn small">Explore Architecture</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Team & Objectives</h3>
+          <p>
+            Student Cybrarians: building practical security tooling that bridges
+            academic research and real-world SOC requirements.
+          </p>
+          <a href="HTML/about.html" class="btn small">Meet the Team</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section demo-access">
+      <h2>Demo Access (Mock OTP Flow)</h2>
+      <p>
+        This is a front-end–only mock OTP form to demonstrate secure access
+        concepts. In a real deployment, this would be backed by an auth server.
+      </p>
+
+      <form id="otpForm" class="otp-form">
+        <label for="otpInput">Enter 6-digit OTP:</label>
+        <input type="text" id="otpInput" maxlength="6" inputmode="numeric" autocomplete="one-time-code">
+        <button type="submit" class="btn primary">Verify</button>
+        <p id="otpMessage" class="otp-message"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Student Cybrarians • AI-IDS-ES</p>
+  </footer>
+
+  <script src="Java Script/main.js"></script>
+  <script src="Java Script/otp.js"></script>
+</body>
+</html>
