@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-IDS-ES Architecture | Student Cybrarians</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/projects.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="../Images/logo.png" alt="AI-IDS-ES Logo" class="logo">
+        <span class="brand">AI-IDS-ES</span>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="real-time-ids.html">Real-time IDS</a></li>
+        <li><a href="hybrid-encryption.html">Hybrid Encryption</a></li>
+        <li><a href="ai-ids-es-architecture.html" class="active">Architecture</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <section class="section">
+      <h1>AI-IDS-ES: System Architecture</h1>
+      <p>
+        High-level architecture of the AI-powered Intrusion Detection System
+        integrated with Elasticsearch for event storage and investigation.
+      </p>
+    </section>
+  </header>
+
+  <main class="section">
+    <section class="project-card">
+      <h2>Components</h2>
+      <ul>
+        <li><strong>Packet Capture Layer</strong> — uses libpcap/npcap to capture network traffic in real time.</li>
+        <li><strong>Flow Builder</strong> — aggregates packets into flows and extracts numerical features.</li>
+        <li><strong>ML Inference Engine</strong> — serves:
+          <ul>
+            <li>Random Forest classifier (supervised)</li>
+            <li>Autoencoder anomaly detector (unsupervised)</li>
+          </ul>
+        </li>
+        <li><strong>Event Pipeline</strong> — transforms model outputs into structured security events.</li>
+        <li><strong>Elasticsearch Cluster</strong> — stores all events for searching and analytics.</li>
+        <li><strong>Dashboards</strong> — this web UI plus Kibana/Grafana for SOC teams.</li>
+      </ul>
+    </section>
+
+    <section class="project-card">
+      <h2>Data Flow</h2>
+      <ol>
+        <li>Network interfaces mirror traffic to the capture node.</li>
+        <li>Captured packets are converted into flow records and normalized features.</li>
+        <li>Features are fed into both the Random Forest and Autoencoder models.</li>
+        <li>Each flow receives:
+          <ul>
+            <li>A predicted label (benign / attack type)</li>
+            <li>Anomaly score from the Autoencoder</li>
+            <li>Derived severity (low/medium/high)</li>
+          </ul>
+        </li>
+        <li>Events are serialized (e.g., JSON) and indexed into Elasticsearch.</li>
+        <li>This UI queries summarized metrics through a backend API.</li>
+      </ol>
+    </section>
+
+    <section class="project-card">
+      <h2>Deployment Model</h2>
+      <ul>
+        <li>Backend written in Python (3.10+), packaged as services.</li>
+        <li>Systemd or Docker-based deployment for capture and inference services.</li>
+        <li>Elasticsearch and Kibana deployed as a separate stack or cluster.</li>
+        <li>Reverse proxy (e.g., Nginx) in front of the web UI and APIs.</li>
+      </ul>
+      <p>
+        In your current student version, many of these components can be mocked
+        or simulated, while still keeping the architecture realistic for a SOC environment.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Student Cybrarians • AI-IDS-ES</p>
+  </footer>
+
+  <script src="../Java Script/main.js"></script>
+</body>
+  </html>
