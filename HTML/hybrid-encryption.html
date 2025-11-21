@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hybrid Encryption for Databases | AI-IDS-ES</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/projects.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="../Images/logo.png" alt="AI-IDS-ES Logo" class="logo">
+        <span class="brand">AI-IDS-ES</span>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="real-time-ids.html">Real-time IDS</a></li>
+        <li><a href="hybrid-encryption.html" class="active">Hybrid Encryption</a></li>
+        <li><a href="ai-ids-es-architecture.html">Architecture</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <section class="section">
+      <h1>Hybrid Encryption for Database Security</h1>
+      <p>
+        This design focuses on protecting sensitive columns in a company's
+        databases using a combination of symmetric and asymmetric cryptography.
+      </p>
+    </section>
+  </header>
+
+  <main class="section">
+    <section class="project-card">
+      <h2>Core Idea</h2>
+      <p>
+        Instead of storing sensitive data (such as employee personal data,
+        financial records, or credentials) in plaintext, the system encrypts
+        selected columns using AES-256. The AES key itself is protected using a
+        public-key scheme (e.g., RSA), forming a classic hybrid encryption
+        scheme.
+      </p>
+      <ul>
+        <li>Fast, bulk data encryption using AES-256 (symmetric key)</li>
+        <li>Key-wrapping using RSA public/private key pairs</li>
+        <li>Role-based decryption via controlled access to private keys</li>
+        <li>Integration with existing relational databases</li>
+      </ul>
+    </section>
+
+    <section class="project-card">
+      <h2>Encryption Flow (High Level)</h2>
+      <ol>
+        <li>Generate a strong random AES data key for each protected dataset or column group.</li>
+        <li>Encrypt the plaintext data using AES-256 in a secure mode (e.g., GCM).</li>
+        <li>Encrypt the AES key using the organization's RSA public key.</li>
+        <li>Store:
+          <ul>
+            <li>Ciphertext data in the normal data column</li>
+            <li>Encrypted AES key in a companion column or key table</li>
+          </ul>
+        </li>
+        <li>For decryption, only authorized processes with access to the RSA private key can unwrap the AES key and recover plaintext.</li>
+      </ol>
+    </section>
+
+    <section class="project-card">
+      <h2>Use within AI-IDS-ES</h2>
+      <p>
+        For the AI-IDS-ES system, hybrid encryption can protect:
+      </p>
+      <ul>
+        <li>Alert metadata containing personal data</li>
+        <li>Long-term log archives stored in SQL/NoSQL stores</li>
+        <li>Any compliance-relevant fields (PII, PCI, PHI, etc.)</li>
+      </ul>
+      <p>
+        This ensures that even if the database is compromised, an attacker
+        does not immediately obtain readable incident or user data.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Student Cybrarians • AI-IDS-ES</p>
+  </footer>
+
+  <script src="../Java Script/main.js"></script>
+</body>
+  </html>
