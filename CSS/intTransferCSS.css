@@ -1,8 +1,0 @@
-@import url("../CSS/homeCSS.css");
-#int{
-    background-image: url("../Images/intMoney.jpg");
-    height:600px;
-    width:800px;
-    background-size:800px 600px;
-    margin: 30px auto;
-}
